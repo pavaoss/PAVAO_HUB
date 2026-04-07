@@ -322,13 +322,13 @@ _G.Settings = {
 		if not isfolder("PAVAO") then
 			makefolder("PAVAO");
 		end;
-		if not isfolder("PAVAO/Blox Fruits/") then
-			makefolder("PAVAO/Blox Fruits/");
+		if not isfolder("RTaO/Blox Fruits/") then
+			makefolder("RTaO/Blox Fruits/");
 		end;
-		if not isfile(("PAVAO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json")) then
-			writefile("PAVAO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(_G.Settings));
+		if not isfile(("RTaO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json")) then
+			writefile("RTaO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(_G.Settings));
 		else
-			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("PAVAO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"));
+			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("RTaO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"));
 			for i, v in pairs(Decode) do
 				_G.Settings[i] = v;
 			end;
@@ -341,15 +341,15 @@ end;
 (getgenv()).SaveSetting = function()
 	if Update:SaveSettings() then
 		if readfile and writefile and isfile and isfolder then
-			if not isfile(("PAVAO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json")) then
+			if not isfile(("RTaO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json")) then
 				(getgenv()).Load();
 			else
-				local Decode = (game:GetService("HttpService")):JSONDecode(readfile("PAVAO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"));
+				local Decode = (game:GetService("HttpService")):JSONDecode(readfile("RTaO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"));
 				local Array = {};
 				for i, v in pairs(_G.Settings) do
 					Array[i] = v;
 				end;
-				writefile("PAVAO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(Array));
+				writefile("RTaO/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(Array));
 			end;
 		else
 			return warn("Status : Undetected Executor");
